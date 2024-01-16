@@ -33,7 +33,7 @@ class PedidoController extends Controller
     public function create()
     {
         $pedido = new Pedido();
-        $clientes = Cliente::pluck('id', 'name');
+        $clientes = Cliente::pluck('name', 'id');
         return view('pedido.create', compact('pedido', 'clientes'));
     }
 
