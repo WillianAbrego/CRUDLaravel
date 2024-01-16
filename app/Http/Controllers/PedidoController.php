@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cliente;
 use App\Pedido;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,8 @@ class PedidoController extends Controller
     public function create()
     {
         $pedido = new Pedido();
-        return view('pedido.create', compact('pedido'));
+        $clientes = Cliente::pluck('id', 'name');
+        return view('pedido.create', compact('pedido', 'clientes'));
     }
 
     /**
